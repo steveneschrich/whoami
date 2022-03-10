@@ -157,9 +157,9 @@ fullname <- function(fallback = NULL) {
   } else {
     user <- try({
       user <- system("getent passwd $(whoami)", intern = TRUE)
-      user <- str_trim(user)
-      user <- strsplit(user, ":")[[1]][5]
-      user <- sub(user, ",.*", "")
+      user <- stringr::str_trim(user)
+      user <- base::strsplit(user, ":")[[1]][5]
+      user <- base::sub(user, ",.*", "")
     }, silent = TRUE)
     if (ok(user)) return(user)
 
